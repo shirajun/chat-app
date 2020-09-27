@@ -26,7 +26,7 @@
             <%#option要素のvalue属性にuser.idを指定 この記述でroom[user_ids][]をキーに「user.id」をコントローラー側へ送信%>
           <% end %>
         </select>
-        <input name="room[user_ids][]" type="hidden" value=<%= current_user_id %>>
+        <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
         <%#current_user.idをコントローラー側へ送信できる%>
       </div>
     </div>
