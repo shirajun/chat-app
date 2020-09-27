@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     #Message.newで生成したMessageモデルのインスタンス情報を代入
     @room = Room.find(params[:room_id])
     #paramsに含まれているroom_idを代入
+    @messages = @room.messages.includes(:user)
   end
 
   def create
@@ -16,10 +17,13 @@ class MessagesController < ApplicationController
       redirect_to room_messages_path(@room)
       #保存成功で参加しているチャットルームに投稿したメッセージの一覧画面にリダイレクト
     else
+      @messages = @room.messages.includes(:user)
       render :index
       #保存できなかった場合indexアクションが実行され同じページに戻る
     end
   end
+
+  
 
   private
 

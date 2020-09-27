@@ -12,37 +12,8 @@
 </div>
 
 <div class="messages">
-  <div class="message">
-    <div class="upper-message">
-      <div class="message-user">
-        MIWA
-      </div>
-      <div class="message-date">
-        2020/9/25(fry) 20:49:48
-      </div>
-     </div>
-    <div class="lower-message">
-      <div class="message-content">
-        good morning
-      </div>
-    </div>
-  </div>
-  
-  <div class="message">  
-    <div class="upper-message">
-      <div class="message-user">
-        TSUGU
-      </div>
-      <div class="message-date">
-        2020/9/25(fry) 20:56:22
-      </div>
-    </div>
-    <div class="lower-message">
-      <div class="message-content">
-        mammy
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'message', collection: @messages %>
+  <%#collectionオプションにより@messegesの中にある要素を繰り返し表示%>
 </div>
 
 <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f| %>
